@@ -2,7 +2,7 @@ name: first workflow
 on: [push]
 
 jobs:
-  run-shell-commands:
+  first-job:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string
@@ -11,3 +11,16 @@ jobs:
         run: |
           node -v
           npm -v
+  second-job:
+    runs-on: macos-latest
+    steps:
+      - name: SW version
+        run: sw_vers
+  third-job:
+    runs-on: windows-latest
+    needs: first-job
+    steps:
+      - name: write output
+        run: Write-Output "Hello from Windows!"
+      - name: Error in a command
+        run: command_dne
