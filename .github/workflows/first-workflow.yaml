@@ -23,4 +23,4 @@ jobs:
       - name: write output
         run: Write-Output "Hello from Windows!"
       - name: Error in a command
-        run: command_dne
+        run: does_not_exist
